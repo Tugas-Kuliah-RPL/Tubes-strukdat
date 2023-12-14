@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1702528130 source:c:\users\user\documents\kuliah\semester 3\sturktur data\tubes\main\tubessturkdat\main.cpp
+	"resev.h"
+
+1702527938 c:\users\user\documents\kuliah\semester 3\sturktur data\tubes\main\tubessturkdat\resev.h
+	<iostream>
+
+1702529552 source:c:\users\user\documents\kuliah\semester 3\sturktur data\tubes\main\tubessturkdat\resev.cpp
+	"resev.h"
+
