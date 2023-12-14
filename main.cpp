@@ -116,6 +116,7 @@ int main()
                 cout << "Alamat: ";
                 cin >> pel.alamat;
                 DeletePelanggan(LP,pel);
+                  break;
             case 9:
                 cout << "Masukkan data kamar yang ingin di hapus: \n";
                 cout << "Id Kamar: ";
@@ -123,9 +124,11 @@ int main()
                 cout << "Jenis Kamar: ";
                 cin >> km.jenis;
                 DeleteKamar(LP,LK,km);
+                break;
              case 10:
                 cout << "Pemasukan setiap jenis kamar: \n";
                 hitungPemasukan(LP,LK);
+                  break;
             case 0:
                 cout << "Program selesai.\n";
                 break;
