@@ -15,7 +15,7 @@ using namespace std;
 
 typedef struct ElmPelanggan *addrPelanggan;
 typedef struct ElmKamar *addrKamar;
-typedef struct relation *addreRelation;
+typedef struct relations *addreRelation;
 
 struct pelanggan{
   int id;
@@ -41,7 +41,7 @@ struct ElmKamar {
     addrKamar next;
 };
 
-struct relation {
+struct relations {
     addrPelanggan infoPelanggan;
     addrKamar infoKamar;
     addreRelation next;
