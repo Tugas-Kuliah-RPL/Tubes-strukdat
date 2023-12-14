@@ -221,7 +221,7 @@ addrKamar cekKamarByPelanggan(ListPelanggan L, pelanggan pel, string idkamar){
 };
 
 addreRelation AllocateRelation(addrPelanggan p1, addrKamar p2){
-    addreRelation p = new relation;
+    addreRelation p = new relations;
     relationPelanggan(p) = p1;
     relationKamar(p) = p2;
     next(p) = NULL;
