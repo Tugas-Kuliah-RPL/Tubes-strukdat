@@ -1,4 +1,4 @@
-#include "resev.h"
+#include "template.hpp"
 
 void createListPelanggan(ListPelanggan& L)
 {
@@ -93,7 +93,7 @@ void DeleteLastPelanggan(ListPelanggan &L, addrPelanggan p){
         first(L) = NULL;
     }else{
         addrPelanggan j = first(L);
-        while (next(j) != NULL){
+        while (next(next(j)) != NULL){
             j = next(j);
         }
         p = j;
@@ -322,7 +322,7 @@ void showAll(ListPelanggan L){
         cout << "List Kosong" << endl;
     }else{
         addrPelanggan j = first(L);
-        int counter = 0;
+        int counter = 1;
         cout << "Show All List" << endl;
         while (j != NULL){
             cout << endl;
@@ -364,7 +364,6 @@ void hitungPemasukan(ListPelanggan L, ListKamar &L2){
                     counter += info(relationKamar(relationPelanggan)).harga;
                 } else {
                    //cout << info(pel).nama << "False" << endl;
-                   cout << "erorr" << endl;
                 }
                  relationPelanggan = next(relationPelanggan);
                 }
