@@ -135,7 +135,7 @@ void DeleteLastKamar(ListKamar &L, addrKamar p){
         first(L) = NULL;
     }else{
         addrKamar j = first(L);
-        while (next(j) != NULL){
+        while (next(next(j)) != NULL){
             j = next(j);
         }
         p = j;
@@ -183,6 +183,26 @@ addrKamar findKamarByIDKamar(ListKamar L, kamar p)
         }
 
         if(info(j).idKamar == p.idKamar){
+            return j;
+        }else{
+            return NULL;
+        }
+
+    }
+}
+
+addrKamar findKamarByJenis(ListKamar L, kamar p)
+{
+    if (first(L) == NULL){
+        cout << "List Kamar Kosong" << endl;
+        return NULL;
+    }else{
+        addrKamar j = first(L);
+        while (j != NULL && info(j).jenis != p.jenis){
+            j = next(j);
+        }
+
+        if(info(j).jenis == p.jenis){
             return j;
         }else{
             return NULL;
@@ -274,7 +294,8 @@ void DeleteKamar(ListPelanggan &L, ListKamar &L2, kamar infoKamar){
         }
         if(first(L2) == findKamar){
             DeleteFirstKamar(L2,findKamar);
-        }else if(next(hasRelation(p)) == NULL){
+        }else if(next(findKamar) == NULL){
+            cout << "test" << endl;
             DeleteLastKamar(L2,findKamar);
         }else{
             deleteAfterKamar(L2,findKamar);
@@ -352,7 +373,7 @@ void showAll(ListPelanggan L){
 void hitungPemasukan(ListPelanggan L, ListKamar &L2){
     addrKamar kmr = first(L2);
     while (kmr != NULL) {
-        int counter = info(kmr).total_pemasukan;
+        int counter = 0;
         addrPelanggan pel = first(L);
         bool isError = false;
         while (pel != NULL) {
@@ -372,9 +393,19 @@ void hitungPemasukan(ListPelanggan L, ListKamar &L2){
             }
             pel = next(pel);
         }
-
-        info(kmr).total_pemasukan += counter;
-        cout << "Jenis kamar " << info(kmr).jenis << " Mempunyai total pemasukan " << counter << endl;
+       
+        addrKamar find = findKamarByJenis(L2, info(kmr));
+        
+        if (find != NULL && find != kmr){
+            info(kmr).total_pemasukan += counter;
+        }else{
+            cout << "Jenis kamar " << info(kmr).jenis << " Mempunyai total pemasukan " << counter << endl;
+            if (info(kmr).total_pemasukan != counter){
+                info(kmr).total_pemasukan += counter;
+            }
+        }
+        
+      
         kmr = next(kmr);
     }
 }
